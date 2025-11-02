@@ -3,9 +3,16 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
+import { MovieProvider } from "./context/MovieContext"; // 👈 import the provider
 
 createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+  <StrictMode>
+    <BrowserRouter>
+      <MovieProvider>
+        {" "}
+        {/* 👈 wrap your entire app */}
+        <App />
+      </MovieProvider>
+    </BrowserRouter>
+  </StrictMode>
 );
