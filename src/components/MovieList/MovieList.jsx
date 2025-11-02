@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
 import useFetch from "../../hooks/useFetch";
-import { useNavigate } from "react-router-dom";
 
 const MovielList = ({ title, apiPath }) => {
   const { data: movies } = useFetch({ apiPath });
@@ -9,8 +8,6 @@ const MovielList = ({ title, apiPath }) => {
   useEffect(() => {
     document.title = title;
   });
-
-  const navigator = useNavigate();
 
   return (
     <div>

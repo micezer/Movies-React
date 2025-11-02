@@ -1,10 +1,18 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 //import Favorite from "../../assets/favorite.png";
 //import Popular from "../../assets/popular";
 
 const Navbar = () => {
+  const navigator = useNavigate();
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const queryTerm = e.target.search.value;
+    e.target.reset();
+    return navigator(`/search?q=${queryTerm}`);
+  };
   return (
     <nav className="navbar navbar-expand-md fixed-top bg-primary navbar-dark">
       <div className="container-fluid">
@@ -40,11 +48,12 @@ const Navbar = () => {
               </NavLink>
             </li>
           </ul>
-          <form action="#">
+          <form onSubmit={handleSearch}>
             <input
               type="search"
               className="form-control"
               placeholder="search"
+              name="search"
             ></input>
           </form>
         </div>

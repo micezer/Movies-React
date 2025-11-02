@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import MovieList from "../components/MovieList/MovieList";
 import MovieDetails from "../components/MovieList/MovieDetails";
+import Search from "../components/MovieList/Search";
 
 const AllRoutes = () => {
   return (
@@ -25,6 +26,7 @@ const AllRoutes = () => {
           element={<MovieList title="Your Favorite Movies" />}
         />
         <Route path="/movie/:id" element={<MovieDetails />} />
+        <Route path="/search" element={<Search apiPath="search/movie" />} />
       </Routes>
     </>
   );

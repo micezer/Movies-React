@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
+import { convertMovieMinuties } from "../../utils/utils";
 const MovieDetails = () => {
   const params = useParams();
   const [movie, setMovie] = useState([]);
@@ -18,7 +18,7 @@ const MovieDetails = () => {
         .then((jsonData) => setMovie(jsonData));
     }
     fectchMovies();
-  });
+  }, []);
 
   useEffect(() => {
     document.title = `${movie.title}`;
@@ -53,6 +53,26 @@ const MovieDetails = () => {
             <i className="bi bi-people-fill text-success"></i>
             {movie.vote_count} Reviews
           </p>
+          <table className="table table-bordered w-50 mt-2">
+            <tbody>
+              <tr>
+                <th>Runtime</th>
+                <td>{convertMovieMinuties(movie.runtime)}</td>
+              </tr>
+              <tr>
+                <th>Budget</th>
+                <td>{movie.budget}</td>
+              </tr>
+              <tr>
+                <th>Revenue</th>
+                <td>{movie.revenue}</td>
+              </tr>
+              <tr>
+                <th>Release Date</th>
+                <td>{movie.release_date}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </main>
