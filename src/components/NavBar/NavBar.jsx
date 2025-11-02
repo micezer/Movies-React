@@ -1,8 +1,6 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-
-//import Favorite from "../../assets/favorite.png";
-//import Popular from "../../assets/popular";
+import "./Navbar.css";
 
 const Navbar = () => {
   const navigator = useNavigate();
@@ -14,10 +12,13 @@ const Navbar = () => {
     return navigator(`/search?q=${queryTerm}`);
   };
   return (
-    <nav className="navbar navbar-expand-md fixed-top bg-primary navbar-dark">
+    <nav
+      className="navbar navbar-expand-md fixed-top navbar-dark"
+      style={{ backgroundColor: "rgb(0, 255, 127)" }}
+    >
       <div className="container-fluid">
         <NavLink to="/" className="navbar-brand">
-          <i className="bi bi-film"></i> Movies React
+          <i className="bi bi-camera-reels"></i> Movies React
         </NavLink>
 
         <button
@@ -41,7 +42,6 @@ const Navbar = () => {
                 Popular
               </NavLink>
             </li>
-
             <li className="nav-item">
               <NavLink to="/movies/favorite" className="nav-link">
                 Favorite
@@ -54,7 +54,7 @@ const Navbar = () => {
               className="form-control"
               placeholder="search"
               name="search"
-            ></input>
+            />
           </form>
         </div>
       </div>

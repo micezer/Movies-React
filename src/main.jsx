@@ -9,8 +9,6 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <MovieProvider>
-        {" "}
-        {/* 👈 wrap your entire app */}
         <App />
       </MovieProvider>
     </BrowserRouter>

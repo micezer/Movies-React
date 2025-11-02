@@ -25,20 +25,33 @@ const MovieDetails = () => {
   });
   return (
     <main className="container">
-      <h5 className="text-danger py-2 border-bottom mb-3">{movie.title}</h5>
+      <h5
+        className="py-2 border-bottom mb-3"
+        style={{ color: "rgb(0, 255, 127)" }}
+      >
+        {movie.title}
+      </h5>
 
       <div className="row">
         <div className="col-md-4">
           <img src={image} className="img-fluid img-thumbnail" />
         </div>
         <div className="col-md-8">
-          <h3 className="text-primary">{movie.title}</h3>
-          <p className="mt-3">{movie.overview}</p>
-
+          <h3 style={{ color: "rgb(0, 255, 127)" }}>{movie.title}</h3>
+          <p className="mt-3" style={{ color: "white" }}>
+            {movie.overview}
+          </p>
           {movie.genres ? (
             <p className="d-flex gap-3">
               {movie.genres.map((genre) => (
-                <span key={genre.id} className="badge bg-danger">
+                <span
+                  key={genre.id}
+                  className="badge"
+                  style={{
+                    backgroundColor: "rgb(0, 255, 127)",
+                    color: "black",
+                  }}
+                >
                   {genre.name}
                 </span>
               ))}
@@ -53,24 +66,39 @@ const MovieDetails = () => {
             <i className="bi bi-people-fill text-success"></i>
             {movie.vote_count} Reviews
           </p>
-          <table className="table table-bordered w-50 mt-2">
+          <table
+            className="table table-bordered w-50 mt-2"
+            style={{ backgroundColor: "rgb(33, 37, 41)" }}
+          >
             <tbody>
-              <tr>
-                <th>Runtime</th>
-                <td>{convertMovieMinuties(movie.runtime)}</td>
-              </tr>
-              <tr>
-                <th>Budget</th>
-                <td>{movie.budget}</td>
-              </tr>
-              <tr>
-                <th>Revenue</th>
-                <td>{movie.revenue}</td>
-              </tr>
-              <tr>
-                <th>Release Date</th>
-                <td>{movie.release_date}</td>
-              </tr>
+              {[
+                ["Runtime", convertMovieMinuties(movie.runtime)],
+                ["Budget", movie.budget],
+                ["Revenue", movie.revenue],
+                ["Release Date", movie.release_date],
+              ].map(([label, value], i) => (
+                <tr
+                  key={i}
+                  style={{ backgroundColor: "rgb(33, 37, 41)", color: "white" }}
+                >
+                  <th
+                    style={{
+                      backgroundColor: "rgb(33, 37, 41)",
+                      color: "white",
+                    }}
+                  >
+                    {label}
+                  </th>
+                  <td
+                    style={{
+                      backgroundColor: "rgb(33, 37, 41)",
+                      color: "white",
+                    }}
+                  >
+                    {value}
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

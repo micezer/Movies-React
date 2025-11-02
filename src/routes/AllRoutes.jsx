@@ -23,10 +23,7 @@ const AllRoutes = () => {
           path="/movies/popular"
           element={<MovieList title="Popular Movies" apiPath="movie/popular" />}
         />
-        <Route
-          path="/movies/favorite"
-          element={<Favorites />} // <-- Changed this
-        />
+        <Route path="/movies/favorite" element={<Favorites />} />
         <Route path="/movie/:id" element={<MovieDetails />} />
         <Route path="/search" element={<Search apiPath="search/movie" />} />
       </Routes>
