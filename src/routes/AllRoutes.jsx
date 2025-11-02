@@ -8,16 +8,24 @@ const AllRoutes = () => {
       <Routes>
         <Route
           path="/"
-          element={<MovielList title="Discover Great Movies" />}
+          element={
+            <MovielList
+              title="Discover Great Movies"
+              apiPath="movie/now_playing"
+            />
+          }
         />
         <Route
           path="/movies/popular"
-          element={<MovielList title="Popular Movies" />}
+          element={
+            <MovielList title="Popular Movies" apiPath="movie/popular" />
+          }
         />
         <Route
           path="/movies/favorite"
           element={<MovielList title="Your Favorite Movies" />}
         />
+        <Route path="/movie/:id" element={<MovieDetails />} />
       </Routes>
     </>
   );
