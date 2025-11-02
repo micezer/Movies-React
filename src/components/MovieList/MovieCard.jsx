@@ -24,7 +24,7 @@ const MovieCard = ({ movie }) => {
           <p className="card-text text-overflow-2">{overview}</p>
           <div className="d-flex justify-content-between align-items-center">
             <Link
-              to=""
+              to={`/movie/${id}`}
               className="btn btn-sm btn-outline-primary stretched-link"
             >
               Read More

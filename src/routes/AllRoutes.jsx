@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import MovielList from "../components/MovieList/MovieList";
+import MovieList from "../components/MovieList/MovieList";
+import MovieDetails from "../components/MovieList/MovieDetails";
 
 const AllRoutes = () => {
   return (
@@ -9,7 +10,7 @@ const AllRoutes = () => {
         <Route
           path="/"
           element={
-            <MovielList
+            <MovieList
               title="Discover Great Movies"
               apiPath="movie/now_playing"
             />
@@ -17,13 +18,11 @@ const AllRoutes = () => {
         />
         <Route
           path="/movies/popular"
-          element={
-            <MovielList title="Popular Movies" apiPath="movie/popular" />
-          }
+          element={<MovieList title="Popular Movies" apiPath="movie/popular" />}
         />
         <Route
           path="/movies/favorite"
-          element={<MovielList title="Your Favorite Movies" />}
+          element={<MovieList title="Your Favorite Movies" />}
         />
         <Route path="/movie/:id" element={<MovieDetails />} />
       </Routes>
